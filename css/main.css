@@ -1,0 +1,654 @@
+/* 
+(Root Font-size : "62.5% = 10px = 1 rem " we will use rem 
+to set the font-size and padding to easy maintaine the code)
+------------------------------------------------------------
+font-family:lato
+*/ 
+
+
+/*-------------------------------------*/
+/* BASIC SETUP*/
+/*-------------------------------------*/
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size: 62.5%;
+}
+body{
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+    font-weight: 400;
+    line-height: 1.7rem;
+    color: #111111;
+}
+.clearfix{zoom: 1}
+.clearfix:after {
+    content: ".";
+    clear:both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+/*-------------------------------------*/
+/* REUSABLE COMPONENTS*/
+/*-------------------------------------*/
+section{padding: 80px 0;}
+/*-------------------------------------*/
+/* Heading*/
+/*-------------------------------------*/
+h1, h2, h3{
+    
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+h1{
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 0;
+    word-spacing: .4rem;
+    margin-bottom: 4rem;
+    position: relative;
+}
+h2{
+    font-size: 3rem;
+    word-spacing: .2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+    line-height: 2.7rem;
+    font-weight: 700;
+    
+}
+.creativity__main h2::before,
+h1::before
+{
+    content: "Nocturne";
+    position:absolute;
+    top:-3rem;
+    color: #80808040;
+    letter-spacing: 1rem;
+    left:0;
+}
+
+h2::after,
+.footer h4::after{
+    content: "";
+    width: 10rem;
+    height: .2rem;
+    display: block;
+    background-color: #baad85;
+    margin:0 auto;
+    margin-top: 2rem;
+}
+.footer h4::after{
+    content: "";
+    width: 10rem;
+    height: .2rem;
+    display: block;
+    margin: 0;
+    background-color: #baad85;
+    margin-top: 2rem;
+}
+h3{
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+    line-height: 2.6rem;
+}
+/*-------------------------------------*/
+/* PARAGRAPH*/
+/*-------------------------------------*/
+p {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    line-height: 2.4rem;
+    font-size: 1.6rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+/*-------------------------------------*/
+/* Button*/
+/*-------------------------------------*/
+.btn:visited,
+.btn:link {
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    padding: 1.5rem 7rem;
+    font-size: 2rem;
+    border-radius: 10rem;
+    display: inline-block;
+    margin-top: 3rem;
+    position: relative;
+}
+.btn:hover{
+    transform: translateY(-.3rem);
+    box-shadow: 1rem 1rem 3rem 0px #0000007a;
+}
+.btn:active
+{
+    transform: translateY(-.1rem);
+    box-shadow: .5rem .5rem 3rem 0px #0000007a;
+
+}
+.btn::after
+{
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    border-radius: 10rem;
+    z-index: -1;
+    display: block;
+    transition: all .4s ;
+}
+.btn:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+/*-------------------------------------*/
+/* My Animation*/
+/*-------------------------------------*/
+@keyframes fromTop{
+    0%{
+        transform: translateY(-3rem);
+        opacity: 0;
+    }
+    100%{
+        transform:translateY(0);
+        opacity: 1;
+    }
+}
+@keyframes fromRight{
+    0%{
+        transform: translateX(5rem);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes fromleft{
+    0%{
+        transform: translateX(-5rem);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+.new__container:hover{transform: rotate(1deg);}
+i:hover,.more:hover{color: #baad85;}
+
+/*-------------------------------------*/
+/* Nav */
+/*-------------------------------------*/
+nav {
+    position: fixed;
+    top: 2rem;
+    right: 3rem;
+    background-color: white;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 10rem;
+    line-height: 1.7rem;
+    z-index: 1;
+    padding: 0.7rem 0.9rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    animation: fromRight 2s;
+}
+
+/*-------------------------------------*/
+/* Header */
+/*-------------------------------------*/
+
+.header{
+    background-image: linear-gradient(to left,rgba(255, 255, 255, 0.48),#000006a3),url(../img/Drive\ Background.jpg);
+    height: 90vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    background-position: top;
+    position: relative; 
+}
+.header__logo-box{
+    position: absolute;
+    top:3rem;
+    left: 3rem;
+    animation: fromleft 2s;
+}
+.header__logo{height: 4rem;}
+.header__main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items:stretch;
+    align-self: center;
+    color:#ffffff;
+    animation-name: fromTop;
+    animation-duration: 2s;
+}
+.header__primary{display: block;}
+/* test*/
+.header__text{
+    flex:1 1 70rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.header__space{flex: 0 1 50rem;}
+/*-------------------------------------*/
+/* What We Do Section */
+/*-------------------------------------*/
+.service__menu
+{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    padding:0 7rem;
+    animation: fromTop 2s;
+    animation-delay: 2s ;
+    animation-fill-mode: backwards;
+}
+.service__paragraph{text-align: center;}
+.service__menu-option{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    flex: 1 1 350px;
+    align-content: flex-start;
+}
+.service__menu-option h3{
+flex-basis: 40%;
+flex-grow: 1;
+font-size: 3rem;
+}
+.service__menu-option i{
+    flex-basis: 15%;
+    font-size: 3rem;
+    color: #baad85;
+}
+/*-------------------------------------*/
+/* Creativity */
+/*-------------------------------------*/
+.creativity{
+    display:flex;
+    background-image:linear-gradient(to right, #f9f9f900,#313131 ),url(../img/Hero-Background.jpg);
+    align-items: center;
+    padding-bottom:0;
+    flex-wrap: wrap;
+    
+}
+.creativity__main{
+    display: flex;
+    flex:2 1 58rem;
+    align-items: center;
+    flex-direction: column;
+    animation: fromleft 2s;
+    animation-delay: 4s ;
+    animation-fill-mode: backwards;
+}
+.creativity__image{
+    flex:1 1 46rem;
+    height: 100%;
+    line-height: 0;
+    text-align: center;
+    animation: fromRight 2s;
+    animation-delay: 4s ;
+    animation-fill-mode: backwards;
+}
+.creativity__image img{width: 100%;}
+/*-------------------------------------*/
+/* Gallery */
+/*-------------------------------------*/
+.gallery
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 7rem 0 0;
+}
+.gallery__border{
+    flex: 1 1 35rem;
+    position: relative;
+    display: flex;
+}
+.gallery__image{
+    width: 100%;
+    height: 40rem;
+}
+
+.info__photo
+{
+    background: rgba(0, 0, 0, 0.6);
+    height: 100%;
+        position: absolute;
+        z-index: 4;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        opacity: 0;
+        color: #fff;
+        margin: 0;
+        transition: 1s;
+    }
+    .info__photo i{
+        font-size: 2.5rem;
+        margin-right: 1.5rem;
+        cursor: pointer;
+        margin-top: 1rem;
+    }
+    .info__photo:hover
+    {
+        opacity: 1;
+    }
+/*-------------------------------------*/
+/* Stats */
+/*-------------------------------------*/
+    .stats{
+        background-color: #baad85;
+        display: flex;
+        justify-content: space-evenly;
+        padding: 3rem 0;
+        text-align: center;
+    }
+    .stats__border{color: white;}
+    .stats__border h4{
+        font-size: 2rem;
+        font-weight: 700;
+    }
+    .stats__border span{
+        display: block;
+        margin-top: 2rem;
+        font-size: 1.6rem;
+    }
+/*-------------------------------------*/
+/*Mobile Device*/
+/*-------------------------------------*/
+.mobile{
+    
+}
+.mobile__main{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.mobile__image{flex: 0 2 388px}
+.mobile__image img{
+    height: 37rem;
+    width: 100%;
+} 
+.mobile__text{
+    flex: 0 1 800px;
+    margin-top: 30px;
+}
+.mobile__text h2{font-weight: 700;}
+.mobile__benefites{
+    display:flex;
+    margin-left: 15%;
+    font-size:2rem;
+    list-style: none;
+    margin-top :2rem;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 20rem;
+}
+.mobile__benefites li{
+
+}
+.mobile__benefites li i{
+    margin-right: 1rem;
+    color:#baad85
+}
+.mobile__benefites li .btn {box-shadow:  1px 2px 7px 0px #00000059;}
+/*-------------------------------------*/
+/*Themes*/
+/*-------------------------------------*/
+.theme{
+    display: flex;
+    flex-wrap: wrap;
+    background-image: linear-gradient(to left,#0000066e,rgba(255, 255, 255, 0.6)),url(../img/samantha-gades-BlIhVfXbi9s-unsplash.jpg);
+    background-size: cover;
+    background-position: bottom;
+    align-items: center;
+}
+.theme__main{flex:1 1 65rem}
+.theme__space{flex:0 1 45rem}
+.theme__speicals{
+    list-style: none;
+    margin-left: 15%;
+    margin-top: 2rem;
+    font-size: 1.6rem;
+}
+.theme__speicals li{ margin-top:1rem}
+.theme__speicals li i{
+    margin-right: 1rem;
+    color:#baad85
+}
+.theme__main .btn {
+    margin-left: 15%;
+    box-shadow:  1px 2px 7px 0px #00000059;
+}
+/*-------------------------------------*/
+/*Last News*/
+/*-------------------------------------*/
+.news{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.news__header{
+    flex:1 1 100%;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+}
+.new__container{
+    flex: 0 1 30rem;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-right: 3rem;
+    align-content: flex-start;
+    box-shadow: 2px 2px 2px #bdbdbd;
+    margin-top: 2rem;
+    font-size: 1.6rem;
+    border-radius: .5rem;
+    transition: 0.5s;
+}
+.new__container p{
+    width: 100%;
+    margin: 1rem 0 0;
+    
+}
+.new__container h4{
+    margin-top:1rem
+}
+.new__photo{
+    height: 30rem;
+    width: 100%;
+}
+.more{
+    text-align: end;
+    color:#000;
+    font-size: 1.6rem;
+    margin: 2rem;
+}
+/*-------------------------------------*/
+/*Riewvs*/
+/*-------------------------------------*/
+.review{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to left,#abababf0,rgba(255, 254, 254, 0.6)),url(../img/Section-What-They-Say.jpg);
+    background-position: center;
+    background-attachment: scroll;
+    background-size: cover;
+    min-height: 40rem;
+    font-weight: 700;
+
+}
+.review__text{
+    font-size: 1.6rem;
+    margin:3rem 0;
+    text-align: center;
+}
+cite{font-size: 2rem;}
+/*-------------------------------------*/
+/*connect*/
+/*-------------------------------------*/
+.connect
+{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.connect__text{
+
+    font-size: 1.4rem;
+    text-align: center;
+}
+.connect__border{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 3rem;
+    }
+.connect__box{
+    font-size: 1.6rem;
+    text-align: center;
+}
+.connect__box i{
+    font-size: 3rem;
+    margin: 2rem 1rem;
+}
+.connect__box span{
+    display: block;
+    margin-right: 1rem;
+    margin-left: 1rem;
+}
+/*-------------------------------------*/
+/*Map*/
+/*-------------------------------------*/
+.map{
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+.map iframe {width: 100%;}
+/*-------------------------------------*/
+/*Footer*/
+/*-------------------------------------*/
+.footer{
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #474747;
+    color: #ffffff;
+    padding: 6rem 1rem;
+}
+.footer__info,
+.footer__blogs,
+.footer__gallery{
+    flex-direction: column;
+    flex-basis: 40rem;
+}
+.footer h4{font-size: 1.6rem;}
+.footer__info p{
+    width: 100%;
+    margin: 1rem 0 1rem;
+}
+.footer__info ul{list-style: none;}
+.footer__info ul li{margin-top: .5rem;}
+.info{
+    margin-top: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+}
+.info i{
+    margin-right: 2rem;
+    font-size: 1.6rem;
+}
+.footer__blogs{
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.footer__blog-box{
+    margin: 1rem 0 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.footer__blog-box h5 {
+    flex: 1 1 70%;
+    height: 50%;
+    font-size: 1.6rem;
+    margin-left: 1rem;
+
+}
+.footer__blog-box h5 span{
+    margin-top: 1rem;
+    display: inline-block;
+}
+.footer__gallery{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 31.5rem;
+}
+.footer__gallery__border{
+    margin-top: 1rem;
+    display:flex;
+    flex-wrap: wrap;
+}
+.footer__gallery__border img{
+    margin:.2rem auto;
+}
+.copyright{
+    background: #111111;
+    color: #ffffff;
+    letter-spacing: 1rem;
+    text-align: center;
+}
+.footer img {
+    opacity: 0.7;
+    transition: 0.5s;
+}
+.footer img:hover {
+    opacity: 1;
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .gallery__border {flex: 1 1 24rem;}
+    .creativity__image {flex: 1 1 42rem;}
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .service__menu {padding: 0 2rem;}
+    .footer__gallery__border{border:none}
+    .new__container{margin-right: 0rem;}
+}
